@@ -153,3 +153,48 @@ z-index: -1;
  border-radius: 10px;
 }
 
+.fourthBtnContainer{
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100vw;
+ padding: 1em 2em;
+ margin-top: 10px;
+ border: 1px solid rgba(255,255,255, 0.8);
+ background-color: #c0cdce;
+ outline: none;
+ color: white;
+ border-radius: 10px;
+ cursor: pointer;
+ z-index: 0;
+ box-shadow: 0 0 30px rgba(191, 134,206, 0.68), 0 0 30px rgba(191, 134,206, 0.68);
+ background-image: linear-gradient(0deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 35%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.0) 50%),
+ linear-gradient(to right,#c487cc 0%, #8079eb 100%);
+
+ background-image: -webkit-linear-gradient(top left, rgba(255,255,255,0.2) 0%,
+ rgba(255,255,255,0.2) 35%,
+ rgba(255,255,255,0.6) 40%,
+ rgba(255,255,255,0.0) 50%
+ ),
+ -webkit-linear-gradient(left,#c487cc 0%, #8079eb 100%);
+
+ background-image: -moz-linear-gradient(0deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 35%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.0) 50%),
+ -moz-linear-gradient(left,#c487cc 0%, #8079eb 100%);
+
+background-position: -400px -400px,0 0;
+ background-size: 300% 300%,100% 100%;
+ -moz-background-size: 300% 300%,100% 100%;
+ -webkit-background-size: 300% 300%,100% 100%;
+
+ transition: background-position 0s ease;
+ -moz-transition: background-position 0s ease;
+ -webkit-transition: background-position 0s ease;
+ background-repeat: no-repeat;
+}
+
+.fourthBtnContainer:hover{
+ background-position: 0 0, 0 0;
+ transition-duration: 0.2s;
+}
+
