@@ -198,3 +198,28 @@ background-position: -400px -400px,0 0;
  transition-duration: 0.2s;
 }
 
+.fifthBtnContainer{
+ background-color: transparent;
+ color: black;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100vw;
+ padding: 12px 50px;
+ box-sizing: border-box;
+ font-size: 35px;
+ margin-top: 10px;
+ font-family: "Quicksand",sans-serif;
+ border: 8px solid transparent;
+ border-image: -webkit-linear-gradient(right, #2db62d, #3b91e3);
+ border-image-slice: 1;
+}
+
+.fifthBtnContainer:hover{
+ border: none;
+ background-image: -webkit-linear-gradient(right, #2db62d, #3b91e3);
+ color: #f0f0f0;
+ cursor: pointer;
+}
+
