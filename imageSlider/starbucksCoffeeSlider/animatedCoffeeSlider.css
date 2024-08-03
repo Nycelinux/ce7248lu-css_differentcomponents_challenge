@@ -1,0 +1,341 @@
+body{
+    font-family: "Copperplate Gothic Bold", "serif";
+    margin: 0;
+    font-size: 18px;
+    background-color: #4f8b69;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --border-color: #fff5;
+    --w-image: 500px;
+    --calculate: calc(3/2);
+
+
+}
+
+header{
+    display: grid;
+    grid-template-columns: 80px 1fr calc(var(--w-image)* var(--calculate));
+    grid-template-rows: 80px;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header .logo img{
+    width: 80%;
+}
+
+header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a{
+    color: #101e20;
+    font-weight: 400;
+}
+
+header nav ul{
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+header nav{
+    border-left: 1px solid var(--border-color);
+}
+
+.carousel{
+    margin-top: -80px;
+    position: relative;
+    width: 100%;
+    height: 100vw;
+    overflow: hidden;
+}
+
+.carousel .list{
+    height: 100%;
+    position: relative;
+}
+
+.carousel .list::before{
+    position: absolute;
+    width: var(--w-image);
+    height: 100%;
+    content: '';
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.carousel .list::after{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    content: '';
+    background-color: salmon;
+    width: 400px;
+    height: 300px;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 20px 50px 110px 230px;
+    filter: blur(150px);
+    opacity: .6;
+}
+
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+}
+
+.carousel .list .item .itemImage{
+    width: var(--w-image);
+    height: 100%;
+    position: absolute;
+    top: -70%;
+    left: calc(100% - var(--w-image));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.carousel .list .item .itemImage img{
+    width: 90%;
+    margin-top: 20px;
+    position: absolute;
+    filter: drop-shadow(0 150px 50px #9e0c0c55);
+}
+
+.carousel .list .item .itemImage figcaption{
+    font-family: 'Book Antiqua', 'sans-serif';
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: right;
+    margin-bottom: 30px;
+    width: 70%;
+}
+
+
+.carousel .list .item .mainContent{
+    height: 100%;
+    top: 0;
+    display: grid;
+    grid-template-columns: calc(100%- calc(var(--w-image) * var(--calculate)));
+    overflow: hidden;
+    position: relative;
+    padding: 50px;
+
+}
+
+.carousel .list .item .mainContent .productContent {
+    padding: 20px;
+    display: flex;
+    position: absolute;
+    top: 5%;
+    flex-direction: column;
+    justify-content: center;
+    max-width: calc(100% - var(--w-image)); /* Begrenzt die maximale Breite des Inhalts */
+    overflow: hidden; /* Verhindert, dass Inhalte über die Spalten hinausgehen */
+}
+
+.carousel .list .item .mainContent .productContent h2{
+    font-size: 5em;
+    font-family: "Book Antiqua", "sans-serif";
+    position: relative;
+    top: 10%;
+
+}
+
+
+.carousel .list .item .mainContent .productContent .price{
+    font-size: 3em;
+    font-family: "Book Antiqua", "sans-serif";
+    margin: 20px 0;
+}
+
+.carousel .list .item .mainContent .productContent .addToCard{
+    background-color: #4f8b69;
+    color: #f0f0f0;
+    padding: 10px 30px;
+    font-family: "Arial","sans-serif";
+    font-size: large;
+    font-weight: 500;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+}
+
+.slideSwitch{
+    position: relative;
+    bottom: 70%;
+    width: calc(100%- calc(var(--w-image) * var(--calculate)));;
+    grid-template-columns: repeat(2,50px);
+    grid-template-rows: 50px;
+    left: calc(100% - var(--w-image));
+    gap: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: 0 10px 40px #5555;
+}
+
+.slideSwitch button{
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: #f0f0f0;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    line-height: 0;
+    box-shadow: 0 10px 40px #5555;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px 15px;
+    margin-left: 60px;
+    border-radius: 10px;
+}
+
+.slideSwitch button:hover{
+    background-color: #eee5;
+}
+
+.carousel .list .item{
+    display: none;
+}
+
+.carousel .list .item.active,
+.carousel .list .item.other0,
+.carousel .list .item.other1,
+.carousel .list .item.other2
+{
+    display: block;
+}
+
+.carousel .list .item.active{
+    z-index: 2;
+}
+
+.carousel .list .item.other0,
+.carousel .list .item.other1{
+    pointer-events: none;
+}
+
+.carousel .list .item.active .mainContent{
+    animation: showContent 1s ease-in-out 1 forwards;
+}
+
+@keyframes showContent {
+    from{
+        clip-path: circle(0% at 70% 50%);
+    } to {
+          clip-path: circle(100% at 70% 50%);
+
+      }
+}
+
+.next .item.other0{
+    z-index: 1;
+}
+
+.next .item .itemImage img,
+.next .item .itemImage figcaption{
+    animation: effectNext .5s ease-in-out 1 forwards;
+}
+
+@keyframes effectNext {
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+         transform: translateX(calc(var(--transform-from)- var(--w-image)));
+
+     }
+}
+
+.next .item.active .itemImage{
+    --transform-from: var(--w-image);
+}
+
+.next .item.other0 .itemImage{
+    z-index: 3;
+    --transform-from: 0px;
+    overflow: hidden;
+}
+
+
+.next .item.other1 .itemImage{
+    z-index: 4;
+    --transform-from: calc(var(--w-image) *2);
+}
+
+.slideSwitch {
+    z-index: 10;
+}
+
+#previous .list .item .itemImage img,
+#previous .list .item .itemImage figcaption{
+    animation: effectPrevious 0.5s ease-in-out 1 forwards;
+}
+
+@keyframes effectPrevious {
+    from{
+        transform: translateX(calc(var(--transform-from)));
+    }to{
+         transform: translateX(calc(var(--transform-from) + var(--w-image)));
+
+     }
+}
+
+#previous .list .item.active .itemImage{
+    --transform-from: calc(var(--w-image)* -1);
+    overflow: hidden;
+}
+
+#previous .list .item.other0 .itemImage{
+    --transform-from: 0px;
+    z-index: 3;
+}
+
+#previous .list .item.other1 .itemImage{
+    --transform-from: var(--w-image);
+    z-index: 3;
+}
+
+#previous .list .item.other1 .mainContent{
+    opacity: 0;
+}
+
+
+@media  screen and (max-width: 1023px) {
+    :root{
+        --calculate: 1;
+        --w-image: 400px;
+    }
+
+    .carousel .list .item .mainContent .productContent h2{
+        font-size: 3em;
+    }
+
+
+}
