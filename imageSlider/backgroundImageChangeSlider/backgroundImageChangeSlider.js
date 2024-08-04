@@ -29,7 +29,7 @@ function moveSlider(direction){
     sliderItems = slider.querySelectorAll('.list .item');
     thumbnailItems = thumbnail.querySelectorAll('.item');
 
-    slider.addEventListener('animationed', function (){
+    slider.addEventListener('animationend', function (){
         if (direction === 'next'){
             slider.classList.remove('next');
         }else {
