@@ -46,6 +46,12 @@ header nav a.active, header nav a:hover {
     margin-top: -50px;
 }
 
+
+.slider .list{
+    display: flex; /* Hinzugefügt für Flexbox */
+    transition: transform 0.5s ease;
+}
+
 .slider .list .item{
     width: 100%;
     height: 100%;
@@ -108,6 +114,7 @@ header nav a.active, header nav a:hover {
 }
 
 .thumbnail{
+    display: flex;
     gap: 20px;
     position: absolute;
     bottom: 50px;
@@ -123,7 +130,7 @@ header nav a.active, header nav a:hover {
     position: relative;
 }
 
-.thumbnail .item .img{
+.thumbnail .item img{
     width: 100%;
     height: 100%;
     object-fit: cover;
