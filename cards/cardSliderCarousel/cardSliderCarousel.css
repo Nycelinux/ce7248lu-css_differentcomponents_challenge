@@ -1,0 +1,62 @@
+*{
+    font-family: "Segoe UI", "sans-serif";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url("../../assets/images/14.png") #0a7f7f no-repeat center;
+}
+
+.cardList .cardItem{
+    color: #f0f0f0;
+    background: rgba(255,255,255, 0.2);
+    width: 400px;
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+}
+
+.cardList .cardItem  .userImages{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    border: 3px solid #ffffff;
+    padding: 4px;
+}
+
+.cardList .cardItem .userJob{
+    font-size: 1.15rem;
+    color: papayawhip;
+    font-weight: 500;
+    margin: 14px 0 40px;
+}
+
+.cardList .cardItem .messageButton{
+   font-size: 1.25rem;
+    padding: 10px 35px;
+    color: #101e20;
+    font-weight: 500;cursor: pointer;
+    border-radius: 6px;
+    background: #f0f0f0;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cardList .cardItem .messageButton:hover{
+    background: rgba(255,255,255, 0.1);
+    border: 1px solid #fff;
+    color: #f0f0f0;
+}
