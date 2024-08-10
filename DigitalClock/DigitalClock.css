@@ -1,0 +1,90 @@
+*{
+    font-family: "Segoe UI",sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: #222224;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 500px;
+    height: 200px;
+    /*background: #f0f0f0;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@property --i{
+    syntax: "<angle>";
+    inherits:false;
+    initial-value: 0deg;
+}
+
+.box{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 15px;
+   /* background: #c487cc;*/
+    border-radius: 10px;
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: repeating-conic-gradient(from var(--i), #5bb75b 0%,#5bb75b 5%,transparent 5%, transparent 40%,#5bb75b 50%);
+    animation: anim 4s linear infinite;
+}
+
+.box .num{
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 60px;
+    z-index: 1;
+}
+
+.box .text{
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    z-index: 1;
+
+}
+
+.box::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--i), #188cad 0%, #188cad 5%,transparent 5%, transparent 40%, #188cad 50%);
+    animation: anim 4s linear infinite;
+    animation-delay: -1s;
+    border-radius: 10px;
+}
+
+@keyframes anim{
+   0%{
+       --i:0deg;
+   }
+    100%{
+        --i:360deg;
+    }
+}
+
+.box::after{
+    position: absolute;
+    content: "";
+    inset: 3px;
+    border-radius: 10px;
+    background: #26272a;
+    border: 3px solid #222224;
+}
