@@ -1,0 +1,47 @@
+.breadcrumb{
+    display:flex;
+    gap:10px;
+    padding:20px;
+    align-items:center;
+    font-size:.95rem;
+}
+
+    .breadcrumb a {
+        text-decoration:none;
+        color:#666;
+    }
+
+    .breadcrumb a:hover {
+        color: #4F46E5;
+    }
+
+    .breadcrumb span:last-child {
+        font-weight: 600;
+        color: #111;
+    }
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+    nav a {
+        text-decoration: none;
+        color: #444;
+        transition: .25s;
+    }
+
+        nav a:hover {
+            color: #4F46E5;
+        }
+
+/*responsive*/
+@media(max-width:850px) {
+    nav {
+        display: none;
+    }
+
+    .floating-navbar {
+        padding: 12px 18px;
+    }
+}
