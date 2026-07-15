@@ -8,3 +8,27 @@
     --shadow:0 12px 40px rgba(0,0,0,.08);
     --transition:.3s ease;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    min-height: 200vh;
+    background: #f4f4f5;
+    color: #111;
+}
+
+.hero {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    text-align: center;
+}
+
+.content {
+    height: 100vh;
+}
