@@ -1,0 +1,10 @@
+:root{
+    --primary:#4F46E5;
+    --surface:rgba(255,255,255,.75);
+    --surface-solid:#fff;
+    --text:#111827;
+    --border:#E5E7EB;
+    --radius:18px;
+    --shadow:0 12px 40px rgba(0,0,0,.08);
+    --transition:.3s ease;
+}
