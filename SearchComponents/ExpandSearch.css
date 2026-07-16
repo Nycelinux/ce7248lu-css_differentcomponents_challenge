@@ -1,0 +1,88 @@
+.expandSearch {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    overflow:hidden;
+    transition:.45s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+    .expandSearch.active {
+        width: 420px;
+        box-shadow: 0 0px 25px rgba(77,163,255,.4),0 10px 40px rgba(0,0,0,.45);
+    }
+
+    .expandSearch::before {
+        content:"";
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        border-radius: inherit;
+        background: linear-gradient(120deg,#4facfe,#00f2fe,#7b61ff,#4facfe);
+        background-size: 300%;
+        animation: borderMove 6s linear infinite;
+        mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+        mask-composite:exclude;
+        pointer-events:none;
+    }
+
+@keyframes borderMove{
+    from{
+        background-position:0%;
+    }
+    to {
+        background-position: 300%;
+    }
+}
+
+input {
+    position: absolute;
+    width: 280px;
+    left: 22px;
+    top: 50%;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: .3s;
+    color: wheat;
+    font-size: 17px;
+    opacity: 0;
+    transform: translateY(-50%);
+    pointer-events:none;
+}
+
+.expandSearch.active input {
+    opacity: 1;
+    pointer-events:auto;
+}
+
+input::placeholder {
+    color:#bfc8ff;
+}
+
+button {
+    position: absolute;
+    width: 70px;
+    height:70px;
+    right: 0px;
+    top: 50%;
+    transform:translateY(-50%);
+    border: none;
+    background: none;
+    transition: .35s;
+    color: wheat;
+    font-size: 22px;
+    cursor:pointer;
+}
+
+.expandSearch.active button {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+button:hover{
+    color:#5ed0ff;
+}

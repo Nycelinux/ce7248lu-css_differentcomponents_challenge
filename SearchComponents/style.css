@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #596cff,#10183f 35%),radial-gradient(circle at bottom right, #00d4ff,#111 35%);
+    font-family:Arial,sans-serif;
+}
