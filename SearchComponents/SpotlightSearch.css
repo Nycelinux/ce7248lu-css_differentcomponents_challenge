@@ -47,16 +47,18 @@
     font-size:20px;
 }
 
-.ul{
+ul{
     list-style:none;
 }
 
-.li{
+
+li{
     padding:20px 24px;
     cursor:pointer;
     transition:.25s;
+    color:aliceblue;
 }
 
-.li:hover {
+li:hover {
     background:#2b3043;
 }
