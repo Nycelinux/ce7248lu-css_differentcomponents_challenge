@@ -58,6 +58,15 @@ function createEmpty() {
 function renderSuggestions(value) {
     suggestions.innerHTML = "";
     let hasResults = false;
+    if (favorites.length) {
+        createCategory("Favorites");
+        favorites.forEach(createFavoriteItem);
+    }
+    if (history.length) {
+        createCategory("Recent");
+        favorites.forEach(createHistoryItem);
+
+    }
     searchData.forEach(group => {
         const results = group.items.filter(item =>
             item.toLowerCase().includes(value.toLowerCase()));
@@ -76,7 +85,7 @@ function renderSuggestions(value) {
                 suggestions.classList.remove("show");
             });
             div.addEventListener("mouseenter", () => {
-                const items = getItem();
+                const items = getItems();
                 selectedIndex = items.indexOf(div);
                 updateSelection();
             });
@@ -90,11 +99,11 @@ function renderSuggestions(value) {
     }
 }
 
-function getItem() {
+function getItems() {
     return [...document.querySelectorAll(".item")];
 }
 function updateSelection() {
-    const items = getItem();
+    const items = getItems();
     items.forEach(item => item.classList.remove("active"));
     if (selectedIndex < 0) return;
     if (selectedIndex >= items.length) {
@@ -128,6 +137,15 @@ document.addEventListener("click", (e) => {
     }
 });
 
+star.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleFavorite(item);
+    history = [];
+    localStorage.removeItem("searchHistory");
+    renderSuggestions(input.value);    
+});
+
+
 
 input.addEventListener("focus", () => {
     if (input.value.trim() !== "")
@@ -136,7 +154,7 @@ input.addEventListener("focus", () => {
 
 document.addEventListener("keydown", (e) => {
     if (!suggestions.classList.contains("show")) return;
-    const items = getItem();
+    const items = getItems();
     if (!items.length) return;
     switch (e.key) {
         case "ArrowDown":

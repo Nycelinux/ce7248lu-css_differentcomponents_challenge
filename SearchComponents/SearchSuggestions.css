@@ -104,4 +104,15 @@ mark{
     color:#5faeff;
 }
 
+.star{
+    color:#7d879d;
+    transition:.25s;
+}
 
+    .star.active {
+        color: #FFD54F;
+    }
+
+    .star:hover{
+        transform:scale(1.2);
+    }
