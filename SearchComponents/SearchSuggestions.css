@@ -39,7 +39,7 @@ color:#4facfe;
     width: 100%;
     border-radius: 20px;
     overflow: hidden;
-    background: rgba(23,31,52,.96);
+    background: rgba(18,24,40,.98);
     backdrop-filter: blur(22px);
     border: 1px solid rgba(255,255,255,.08);
     box-shadow: 0 20px 70px rgba(0,0,0,.35);
@@ -47,6 +47,7 @@ color:#4facfe;
     visibility:hidden;
     transform: translateY(15px);
     transition: .35s;
+    z-index:1000;
 }
 
     .suggestions.show {
@@ -115,4 +116,15 @@ mark{
 
     .star:hover{
         transform:scale(1.2);
+    }
+
+    .category{
+        padding:14px 22px;
+        background:#111827;
+        color:#6faeff;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:1px;
+        text-transform:uppercase;
+        border-bottom:1px solid rgba(255,255,255,.06);
     }

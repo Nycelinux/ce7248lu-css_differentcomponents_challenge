@@ -63,38 +63,21 @@ function renderSuggestions(value) {
         favorites.forEach(createFavoriteItem);
     }
     if (history.length) {
-        createCategory("Recent");
-        favorites.forEach(createHistoryItem);
+        createCategory("Recent Searches");
+        history.forEach(createHistoryItem);
 
     }
     searchData.forEach(group => {
         const results = group.items.filter(item =>
             item.toLowerCase().includes(value.toLowerCase()));
-        if (results.length === 0) return;
+        if (!results.length) return;
         hasResults = true;
-        const category = document.createElement("div");
-        category.className = "category";
-        category.textContent = group.category;
-        suggestions.appendChild(category);
+        createCategory(group.category);
         results.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "item";
-            div.dataset.value = item;
-            div.addEventListener("click", () => {
-                input.value = item;
-                suggestions.classList.remove("show");
-            });
-            div.addEventListener("mouseenter", () => {
-                const items = getItems();
-                selectedIndex = items.indexOf(div);
-                updateSelection();
-            });
-            div.innerHTML = `<i class="${group.icon}"></i>
-            <span> ${highlight(item, value)} </span>`;
-            suggestions.appendChild(div);
+            createSearchItem(item, group.icon, value);
         });
     });
-    if (!hasResults) {
+    if (!hasResults&& !favorites.length && !history.length) {
         createEmpty();
     }
 }
@@ -132,24 +115,15 @@ input.addEventListener("input", () => {
 });
 
 document.addEventListener("click", (e) => {
-    if (!e.target.closest(".search")) {
+    if (!e.target.closest(".searchSuggestion")) {
         suggestions.classList.remove("show");
     }
 });
 
-star.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleFavorite(item);
-    history = [];
-    localStorage.removeItem("searchHistory");
-    renderSuggestions(input.value);    
-});
-
-
 
 input.addEventListener("focus", () => {
-    if (input.value.trim() !== "")
-        suggestions.classList.add("show");
+    renderSuggestions(input.value);
+    suggestions.classList.add("show");
 });
 
 document.addEventListener("keydown", (e) => {
